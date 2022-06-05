@@ -6,8 +6,8 @@ function week2() {
   const canvas = document.querySelector('#c-week2');
 
   const light = getLight();
-  const propeller = getPropeller()
-  const fanCoverCylinder = getFanCoverCylinder()
+  const propeller = getPropeller();
+  const fanCoverCylinder = getFanCoverCylinder();
 
   const scene = new THREE.Scene();
   scene.add(light)
@@ -15,10 +15,6 @@ function week2() {
   scene.add(fanCoverCylinder);
 
   const camera = getCamera();
-
-  const renderer = new THREE.WebGLRenderer({ canvas }, { alpha: true });
-  renderer.setClearColor(TRANSPARENT, 0);
-  renderer.render(scene, camera);
 
   let leftRotation = false;
   let rightRotation = false;
@@ -35,6 +31,8 @@ function week2() {
       fanCoverCylinder.rotation.z -= 0.005
     }
 
+    const renderer = new THREE.WebGLRenderer({ canvas }, { alpha: true });
+    renderer.setClearColor(TRANSPARENT, 0);
     if (resizeRendererToDisplaySize(renderer)) {
       const canvas = renderer.domElement;
       camera.aspect = canvas.clientWidth / canvas.clientHeight;
@@ -49,12 +47,17 @@ function week2() {
       leftRotation = false;
       rightRotation = true;
       initRotation = false;
-    } else if (BBB) {
+      return
+    }
+    if (BBB) {
       leftRotation = true;
       rightRotation = false;
       initRotation = false;
-    } else if (!leftRotation) {
+      return
+    }
+    if (!leftRotation) {
       initRotation = true;
+      return
     }
   }
   requestAnimationFrame(render);

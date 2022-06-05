@@ -18,31 +18,14 @@ function week2() {
 
   const scene = new THREE.Scene();
 
-  setLight(scene);
+  const light = getLight();
+  scene.add(light)
 
   const propeller = getPropeller()
   scene.add(propeller)
 
-  //CylinderGeometry(パーツ2:Fan cover)
-  const fanCoverGeometry = new THREE.CylinderGeometry(8, 8, 4, 32);
-  const fanCoverMaterial = new THREE.MeshPhongMaterial({ color: TRANSPARENT, wireframe: true });
-  const fanCoverCylinder = new THREE.Mesh(fanCoverGeometry, fanCoverMaterial);
-  fanCoverCylinder.rotation.set(1.57, 0, 0)
+  const fanCoverCylinder = getFanCoverCylinder()
   scene.add(fanCoverCylinder);
-
-
-  function resizeRendererToDisplaySize(render) {
-    const canvas = render.domElement;
-    const pixelRatio = window.devicePixelRatio;
-    const width = canvas.clientWidth * pixelRatio | 0;
-    const height = canvas.clientHeight * pixelRatio | 0;
-
-    const needResize = canvas.width !== width || canvas.height !== height;
-    if (!needResize) return needResize;
-
-    renderer.setSize(width, height, false);
-    return needResize;
-  }
 
   const camera = getCamera();
   renderer.render(scene, camera)
@@ -94,7 +77,6 @@ function week2() {
 
 }
 
-//BoxGeometry(パーツ1:プロペラ)
 function getPropellerParts() {
   const PROPELLER_BOX_WIDTH = 1;
   const PROPELLER_BOX_HEIGHT = 10;
@@ -105,6 +87,14 @@ function getPropellerParts() {
     PROPELLER_BOX_HEIGHT,
     PROPELLER_BOX_DEPTH
   )
+}
+
+function getFanCoverCylinder() {
+  const fanCoverGeometry = new THREE.CylinderGeometry(8, 8, 4, 32);
+  const fanCoverMaterial = new THREE.MeshPhongMaterial({ color: TRANSPARENT, wireframe: true });
+  const fanCoverCylinder = new THREE.Mesh(fanCoverGeometry, fanCoverMaterial);
+  fanCoverCylinder.rotation.set(1.57, 0, 0)
+  return fanCoverCylinder;
 }
 
 function getCamera() {
@@ -118,12 +108,11 @@ function getCamera() {
   return camera
 }
 
-//照明
-function setLight(scene) {
+function getLight() {
   const INTENSITY = 1;
   const light = new THREE.DirectionalLight(TRANSPARENT, INTENSITY)
   light.position.set(-1, 2, 4)
-  scene.add(light)
+  return light
 }
 
 function getPropeller() {
@@ -131,5 +120,18 @@ function getPropeller() {
   const propeller = new THREE.Mesh(getPropellerParts(), propellerMaterial)
   propeller.position.set(-25, 0, 0)
   return propeller
+}
+
+function resizeRendererToDisplaySize(render) {
+  const canvas = render.domElement;
+  const pixelRatio = window.devicePixelRatio;
+  const width = canvas.clientWidth * pixelRatio | 0;
+  const height = canvas.clientHeight * pixelRatio | 0;
+
+  const shouldResize = canvas.width !== width || canvas.height !== height;
+  if (!shouldResize) return shouldResize;
+
+  render.setSize(width, height, false);
+  return shouldResize;
 }
 week2()

@@ -104,8 +104,8 @@ function getPropeller() {
   return propeller
 }
 
-function resizeRendererToDisplaySize(render) {
-  const canvas = render.domElement;
+function resizeRendererToDisplaySize(renderer) {
+  const canvas = renderer.domElement;
   const pixelRatio = window.devicePixelRatio;
   const width = canvas.clientWidth * pixelRatio | 0;
   const height = canvas.clientHeight * pixelRatio | 0;
@@ -113,7 +113,7 @@ function resizeRendererToDisplaySize(render) {
   const shouldResize = canvas.width !== width || canvas.height !== height;
   if (!shouldResize) return shouldResize;
 
-  render.setSize(width, height, false);
+  renderer.setSize(width, height, false);
   return shouldResize;
 }
 week2()

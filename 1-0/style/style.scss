@@ -1,0 +1,80 @@
+// 共通
+* {
+  padding: 0;
+  margin: 0;
+  font-family: system-ui;
+}
+
+//header
+header {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  h1 {
+    color: #ffffff;
+    padding: 16px;
+  }
+}
+
+// section-week1
+.week1 {
+  //   overflow: hidden;
+  .week1-inner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    .week1-content {
+      h1 {
+        position: absolute;
+        bottom: 8%;
+        right: 16px;
+        font-size: clamp(50px, 14vw, 90px);
+        color: #ffffff;
+      }
+    }
+    .week1-canvas {
+      #c-week1{
+        width: 100%;
+        height: 100vh;
+        background: rgb(176,30,45);
+        background: linear-gradient(90deg, rgba(176,30,45,1) 5%, rgba(95,55,106,1) 30%, rgba(0,64,152,1) 50%, rgba(0,76,161,1) 75%, rgba(0,73,159,1) 84%, rgba(0,91,172,1) 95%);
+      }
+      img {
+        width: 100%;
+        height: 100vh;
+      }
+    }
+  }
+}
+// section-week2
+.week2 {
+  //   overflow: hidden;
+  .week2-inner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    .week2-content {
+      h1 {
+        position: absolute;
+        bottom: 8%;
+        right: 16px;
+        font-size: clamp(50px, 14vw, 90px);
+        color: #ffffff;
+      }
+    }
+    .week2-canvas {
+      #c-week2{
+        width: 100%;
+        height: 100vh;
+        background: rgb(255,108,255);
+        background: linear-gradient(180deg, rgba(255,108,255,1) 0%, rgba(94,22,220,1) 100%);
+      }
+      img {
+        width: 100%;
+        height: 100vh;
+      }
+    }
+  }
+}

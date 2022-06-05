@@ -1,0 +1,73 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: system-ui;
+}
+
+header {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+header h1 {
+  color: #ffffff;
+  padding: 16px;
+}
+
+.week1 .week1-inner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.week1 .week1-inner .week1-content h1 {
+  position: absolute;
+  bottom: 8%;
+  right: 16px;
+  font-size: clamp(50px, 14vw, 90px);
+  color: #ffffff;
+}
+
+.week1 .week1-inner .week1-canvas #c-week1 {
+  width: 100%;
+  height: 100vh;
+  background: #b01e2d;
+  background: -webkit-gradient(linear, left top, right top, color-stop(5%, #b01e2d), color-stop(30%, #5f376a), color-stop(50%, #004098), color-stop(75%, #004ca1), color-stop(84%, #00499f), color-stop(95%, #005bac));
+  background: linear-gradient(90deg, #b01e2d 5%, #5f376a 30%, #004098 50%, #004ca1 75%, #00499f 84%, #005bac 95%);
+}
+
+.week1 .week1-inner .week1-canvas img {
+  width: 100%;
+  height: 100vh;
+}
+
+.week2 .week2-inner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.week2 .week2-inner .week2-content h1 {
+  position: absolute;
+  bottom: 8%;
+  right: 16px;
+  font-size: clamp(50px, 14vw, 90px);
+  color: #ffffff;
+}
+
+.week2 .week2-inner .week2-canvas #c-week2 {
+  width: 100%;
+  height: 100vh;
+  background: #ff6cff;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ff6cff), to(#5e16dc));
+  background: linear-gradient(180deg, #ff6cff 0%, #5e16dc 100%);
+}
+
+.week2 .week2-inner .week2-canvas img {
+  width: 100%;
+  height: 100vh;
+}
+/*# sourceMappingURL=style.css.map */
